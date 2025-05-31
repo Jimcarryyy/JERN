@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Loading...</title>
+    <link href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0/dist/css/tabler.min.css" rel="stylesheet">
+
+    <!-- Set the favicon -->
+    <link rel="icon" href="../Images/learning.png" type="image/png">
+
+    <!-- Tabler Core CSS -->
+    <link href="../public/dist/css/tabler.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/global.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--tblr-body-bg);
+        }
+        .loading-container {
+            width: 100%;
+            max-width: 240px;
+            text-align: center;
+        }
+        .loading-line {
+            position: relative;
+            height: 4px;
+            background-color: #dee2e6;
+            overflow: hidden;
+            border-radius: 2px;
+            margin-bottom: 1rem;
+        }
+        .loading-line::before {
+            content: "";
+            position: absolute;
+            width: 40%;
+            height: 100%;
+            background-color: #0054a6;
+            animation: loading-slide 1.5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+        }
+        @keyframes loading-slide {
+            0% {
+                left: -40%;
+            }
+            50% {
+                left: 30%;
+                width: 50%;
+            }
+            100% {
+                left: 100%;
+                width: 40%;
+            }
+        }
+        .loading-text {
+            font-size: 14px;
+            color: #667382;
+        }
+
+        .hero-banner{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-banner{
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-banner">
+        <div class="hero-banner">
+            <div class="logo-container text-center mb-4">
+                <h2 id="lms-text-logo">JERN</h2>
+            </div>
+            <p class="loading-text">Loading...</p>
+        </div>
+        <div class="loading-container">
+            <div class="loading-line"></div>
+        </div>
+    </div>
+    <script>
+        // Get the redirect URL from the query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirectUrl = urlParams.get('redirect');
+    
+        // Redirect after a delay (e.g., 2 seconds)
+        setTimeout(() => {
+            window.location.href = redirectUrl || '../auth/login.php';
+        }, 2000);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0/dist/js/tabler.min.js"></script>
+</body>
+</html>
